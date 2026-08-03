@@ -18,7 +18,7 @@
             padding: 40px 20px;
         }
         .container {
-            max-width: 1000px;
+            max-width: 1080px;
             margin: 0 auto;
             background: #fff;
             padding: 50px;
@@ -28,17 +28,19 @@
             gap: 50px;
             flex-wrap: wrap;
         }
+
         /* 左侧：照片+基本信息 */
         .sidebar {
-            flex: 0 0 220px;
+            flex: 0 0 260px;
         }
-  .profile-img {
-    width: 260px; /* 照片宽度，觉得大/小可以改这个数字 */
-    height: auto; /* 高度自动，保持原始比例 */
-    border-radius: 6px;
-    background-color: #e9ecef;
-    margin-bottom: 20px;
-}
+        .profile-img {
+            width: 260px;
+            height: auto;
+            border-radius: 6px;
+            background-color: #e9ecef;
+            margin-bottom: 20px;
+            display: block;
+        }
         .sidebar h1 {
             font-size: 24px;
             margin-bottom: 8px;
@@ -47,40 +49,68 @@
         .sidebar .title {
             color: #4a5568;
             font-size: 16px;
-            margin-bottom: 15px;
+            margin-bottom: 10px;
+            line-height: 1.5;
         }
         .sidebar .contact {
             font-size: 14px;
             color: #718096;
             word-break: break-all;
+            margin-top: 20px;
         }
         .sidebar .contact p {
-            margin-bottom: 6px;
+            margin-bottom: 8px;
+        }
+        .sidebar .contact a {
+            color: #2b6cb0;
+            text-decoration: none;
+        }
+        .sidebar .contact a:hover {
+            text-decoration: underline;
+        }
+
+        /* 谷歌学术按钮 */
+        .scholar-btn {
+            display: inline-block;
+            margin-top: 12px;
+            padding: 8px 18px;
+            background-color: #2b6cb0;
+            color: #ffffff;
+            text-decoration: none;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: background 0.2s;
+            text-align: center;
+            width: 100%;
+        }
+        .scholar-btn:hover {
+            background-color: #2c5282;
         }
 
         /* 右侧：简历内容 */
         .content {
             flex: 1;
-            min-width: 300px;
+            min-width: 320px;
         }
         .section {
-            margin-bottom: 30px;
+            margin-bottom: 32px;
         }
         .section h2 {
             color: #1a365d;
             font-size: 20px;
             border-bottom: 2px solid #e2e8f0;
             padding-bottom: 6px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
         }
         .section ul {
             list-style: none;
             padding-left: 0;
         }
         .section li {
-            margin-bottom: 10px;
+            margin-bottom: 12px;
             padding-left: 20px;
             position: relative;
+            font-size: 14.5px;
         }
         .section li::before {
             content: "•";
@@ -89,9 +119,22 @@
             color: #2b6cb0;
             font-weight: bold;
         }
+
+        /* 论文条目样式 */
         .pub-item {
-            margin-bottom: 12px;
+            margin-bottom: 14px;
             font-size: 14.5px;
+            line-height: 1.6;
+        }
+        .pub-item .pub-title {
+            font-weight: 500;
+            color: #1a365d;
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .pub-item .pub-title:hover {
+            color: #2b6cb0;
+            text-decoration: underline;
         }
         .pub-item .venue {
             font-style: italic;
@@ -100,6 +143,22 @@
         .pub-item .note {
             color: #718096;
             font-size: 13px;
+            display: block;
+            margin-top: 2px;
+        }
+
+        /* 响应式适配 */
+        @media (max-width: 768px) {
+            .container {
+                padding: 30px 20px;
+            }
+            .sidebar {
+                flex: 1 1 100%;
+                text-align: center;
+            }
+            .profile-img {
+                margin: 0 auto 20px;
+            }
         }
     </style>
 </head>
@@ -107,17 +166,24 @@
     <div class="container">
         <!-- 左侧栏：照片+基本信息 -->
         <div class="sidebar">
-            <!-- 照片：把你的证件照命名为 profile.jpg 上传到仓库根目录即可显示 -->
             <img src="profile.jpg" alt="Yixuan Guo" class="profile-img">
             
             <h1>Yixuan Guo</h1>
             <div class="title">Associate Professor</div>
             <div class="title">College of Electronic Information Engineering<br>Taiyuan University of Technology</div>
             
-            <div class="contact" style="margin-top: 20px;">
+            <div class="contact">
                 <p><strong>Email:</strong> guoyixuan@tyut.edu.cn</p>
                 <p><strong>Address:</strong> Taiyuan, Shanxi, China</p>
             </div>
+
+            <!-- 谷歌学术按钮 -->
+            <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+               target="_blank" 
+               rel="noopener noreferrer"
+               class="scholar-btn">
+                Google Scholar Profile
+            </a>
         </div>
 
         <!-- 右侧主内容 -->
@@ -129,8 +195,8 @@
                     <li>Wireless Communications and Beamforming</li>
                     <li>Resonant Beam Based Integrated Sensing and Communication (ISAC)</li>
                     <li>Passive Indoor Positioning and Localization</li>
-                    <li>Wireless Power Transfer (WPT) and SWIPT</li>
-                    <li>MIMO Systems and UAV Networks</li>
+                    <li>Wireless Power Transfer (WPT) and Simultaneous Wireless Information and Power Transfer (SWIPT)</li>
+                    <li>MIMO Systems and UAV-Assisted Heterogeneous Networks</li>
                 </ul>
             </div>
 
@@ -160,74 +226,163 @@
             <!-- 期刊论文 -->
             <div class="section">
                 <h2>Selected Journal Publications</h2>
+
                 <div class="pub-item">
-                    [1] Y. Guo, et al. Resonant Beam Enabled DoA Estimation in Passive Positioning System.
+                    [1] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        Resonant Beam Enabled DoA Estimation in Passive Positioning System
+                    </a>
                     <span class="venue">IEEE Transactions on Wireless Communications</span>, 2024.
-                    <span class="note">(CAS Zone 1, IF=10.7)</span>
+                    <span class="note">(CAS Zone 1, Impact Factor: 10.7)</span>
                 </div>
+
                 <div class="pub-item">
-                    [2] Y. Guo, et al. Resonant Beam Enabled Passive 3D Positioning.
+                    [2] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        Resonant Beam Enabled Passive 3D Positioning
+                    </a>
                     <span class="venue">IEEE Internet of Things Journal</span>, 2025.
-                    <span class="note">(CAS Zone 1, IF=8.9)</span>
+                    <span class="note">(CAS Zone 1, Impact Factor: 8.9)</span>
                 </div>
+
                 <div class="pub-item">
-                    [3] Y. Guo, et al. Resonant Beam Multi-Target DOA Estimation.
+                    [3] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        Resonant Beam Multi-Target DOA Estimation
+                    </a>
                     <span class="venue">IEEE Internet of Things Journal</span>, 2026.
-                    <span class="note">(CAS Zone 1, IF=8.9)</span>
+                    <span class="note">(CAS Zone 1, Impact Factor: 8.9)</span>
                 </div>
+
                 <div class="pub-item">
-                    [4] J. Mu#, Y. Guo#, et al. 3D Passive Positioning with Individual Resonant Beam Base Station.
+                    [4] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        3D Passive Positioning with Individual Resonant Beam Base Station
+                    </a>
                     <span class="venue">IEEE Transactions on Green Communications and Networking</span>, 2026.
-                    <span class="note">(Co-first author, CAS Zone 2, IF=6.7)</span>
+                    <span class="note">(Co-first author with J. Mu, CAS Zone 2, Impact Factor: 6.7)</span>
                 </div>
+
                 <div class="pub-item">
-                    [5] J. Mu, Y. Guo, et al. A Low LO Frequency Resonant Beam System for Multi-User Self-Aligning SWIPT.
+                    [5] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        A Low LO Frequency Resonant Beam System for Multi-User Self-Aligning SWIPT
+                    </a>
                     <span class="venue">IEEE Internet of Things Journal</span>, 2026.
                     <span class="note">(Supervised student as first author, CAS Zone 1)</span>
                 </div>
+
                 <div class="pub-item">
-                    [6] X. Jia, Y. Guo, et al. Age of Information and Energy Efficiency of AF Relay-Assisted IoT with Non-Linear Energy Harvesting.
+                    [6] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        Age of Information and Energy Efficiency of AF Relay-Assisted IoT with Non-Linear Energy Harvesting
+                    </a>
                     <span class="venue">Transactions on Emerging Telecommunications Technologies</span>, 2022.
-                    <span class="note">(CAS Zone 4, IF=2.5)</span>
+                    <span class="note">(CAS Zone 4, Impact Factor: 2.5)</span>
                 </div>
             </div>
 
             <!-- 会议论文 -->
             <div class="section">
                 <h2>Conference Publications</h2>
+
                 <div class="pub-item">
-                    [1] Y. Guo, et al. RF-RBComm: Pilotless Beamforming and Uplink-Downlink Frequency Separation Method.
-                    <span class="venue">IEEE/CIC ICCC Workshops</span>, Shanghai, China, 2025. (EI)
+                    [1] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        RF-RBComm: Pilotless Beamforming and Uplink-Downlink Frequency Separation Method
+                    </a>
+                    <span class="venue">IEEE/CIC International Conference on Communications in China (ICCC) Workshops</span>, Shanghai, China, 2025. (EI)
                 </div>
+
                 <div class="pub-item">
-                    [2] Y. Guo, et al. Outage Performance Evaluation for Drone Assisted Three-Dimensional Heterogeneous Networks.
-                    <span class="venue">IEEE VTC2021-Fall</span>, Norman, OK, USA, 2021. (EI)
+                    [2] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        Outage Performance Evaluation for Drone Assisted Three-Dimensional Heterogeneous Networks
+                    </a>
+                    <span class="venue">IEEE 94th Vehicular Technology Conference (VTC2021-Fall)</span>, Norman, OK, USA, 2021. (EI)
                 </div>
+
                 <div class="pub-item">
-                    [3] Y. Guo, et al. Analysis of Downlink Coverage and Capacity for 3D Mobile UAV Networks.
-                    <span class="venue">IEEE ISMII</span>, Zhuhai, China, 2021. (EI)
+                    [3] 
+                    <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
+                       target="_blank" 
+                       rel="noopener noreferrer"
+                       class="pub-title">
+                        Analysis of Downlink Coverage and Capacity for 3D Mobile UAV Networks
+                    </a>
+                    <span class="venue">IEEE 7th International Symposium on Microwave, Antenna, and Electromagnetic Compatibility (ISMII)</span>, Zhuhai, China, 2021. (EI)
                 </div>
             </div>
 
-            <!-- 专利 -->
+            <!-- 发明专利 -->
             <div class="section">
                 <h2>Patents</h2>
+
                 <div class="pub-item">
-                    [1] Q. Liu, Y. Wu, Y. Guo. Radio Positioning and Early Warning Method and System for Maneuvering Vehicle Area.
-                    <span class="note">CN Patent, Publication No. CN116609723A, 2023.</span>
+                    [1] Q. Liu, Y. Wu, Y. Guo. 
+                    <span class="pub-title">Radio Positioning and Early Warning Method and System for Maneuvering Vehicle Area</span>.
+                    <span class="note">China Invention Patent, Publication No. CN116609723A, Aug. 2023.</span>
                 </div>
+
                 <div class="pub-item">
-                    [2] Q. Liu, S. Han, S. Du, Y. Guo, et al. Integrated System and Method for Power Supply, Positioning and Communication Based on Resonant Beam.
-                    <span class="note">CN Patent, Publication No. CN116961253A, 2023.</span>
+                    [2] Q. Liu, S. Han, S. Du, Y. Guo, M. Xu. 
+                    <span class="pub-title">Integrated System and Method for Power Supply, Positioning and Communication Based on Resonant Beam</span>.
+                    <span class="note">China Invention Patent, Publication No. CN116961253A, Oct. 2023.</span>
                 </div>
+
                 <div class="pub-item">
-                    [3] Q. Liu, S. Du, Z. Zhang, et al. Clustered UAV Ad Hoc Network Communication Architecture.
-                    <span class="note">CN Patent, Publication No. CN119052881A, 2024.</span>
+                    [3] Q. Liu, S. Du, Z. Zhang, Q. Jiang, G. Zhang, Y. Guo. 
+                    <span class="pub-title">Clustered UAV Ad Hoc Network Communication Architecture, Information Transmission Method and Clustering Method</span>.
+                    <span class="note">China Invention Patent, Publication No. CN119052881A, Nov. 2024.</span>
                 </div>
             </div>
 
-          
-            
+            <!-- 科研项目 -->
+            <div class="section">
+                <h2>Research Projects</h2>
+                <ul>
+                    <li>National Key R&D Program of China (No. 2022YFA1004700): Integrated Cooperative Decision-Making and Control for Hierarchical Swarms of High-Dynamic Aircraft, 2022–2027. <span class="note">(Student Lead)</span></li>
+                    <li>Tongji University Interdisciplinary Key Project: CPS Fault Diagnosis Platform for UAV Swarms, 2022–2027. <span class="note">(Participant)</span></li>
+                    <li>National Natural Science Foundation of China (No. 61771344): Distributed Laser Mobile Charging Technology for Mobile Communication Devices. <span class="note">(Participant)</span></li>
+                    <li>Gansu Provincial Science and Technology Program (No. 18YF1GA060): Key Technologies of UAV Communications. <span class="note">(Participant)</span></li>
+                    <li>Postgraduate Innovation Star Project of Gansu Province (No. 2021CXZX-268), 2021. <span class="note">(Principal Investigator)</span></li>
+                    <li>Postgraduate Research Funding Project of Northwest Normal University (No. 2020KYZZ001164), 2020. <span class="note">(Principal Investigator)</span></li>
+                </ul>
+            </div>
+
+            <!-- 荣誉奖项 -->
+            <div class="section">
+                <h2>Awards & Honors</h2>
+                <ul>
+                    <li>First-Class Academic Scholarship, Northwest Normal University, 2020–2021</li>
+                    <li>Third Prize, "Challenge Cup" Gansu Provincial College Students' Academic Science and Technology Competition, 2021</li>
+                    <li>Outstanding Member, CCF Northwest Normal University Student Chapter, 2021</li>
+                </ul>
+            </div>
         </div>
     </div>
 </body>
