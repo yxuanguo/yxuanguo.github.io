@@ -32,14 +32,13 @@
         .sidebar {
             flex: 0 0 220px;
         }
-        .profile-img {
-            width: 220px;
-            height: 280px;
-            border-radius: 6px;
-            object-fit: cover;
-            background-color: #e9ecef;
-            margin-bottom: 20px;
-        }
+  .profile-img {
+    width: 260px; /* 照片宽度，觉得大/小可以改这个数字 */
+    height: auto; /* 高度自动，保持原始比例 */
+    border-radius: 6px;
+    background-color: #e9ecef;
+    margin-bottom: 20px;
+}
         .sidebar h1 {
             font-size: 24px;
             margin-bottom: 8px;
