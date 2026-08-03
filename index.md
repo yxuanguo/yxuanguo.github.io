@@ -226,27 +226,8 @@
                 </div>
             </div>
 
-            <!-- 科研项目 -->
-            <div class="section">
-                <h2>Research Projects</h2>
-                <ul>
-                    <li>National Key R&D Program of China (2022YFA1004700), 2022–2027. <span class="note">(Student Lead)</span></li>
-                    <li>Tongji University Interdisciplinary Key Project: CPS Fault Diagnosis Platform for UAV Swarms, 2022–2027. <span class="note">(Participant)</span></li>
-                    <li>NSFC General Program: Distributed Laser Mobile Charging Technology (61771344). <span class="note">(Participant)</span></li>
-                    <li>Gansu Provincial Science and Technology Program: Key UAV Technologies (18YF1GA060). <span class="note">(Participant)</span></li>
-                    <li>Postgraduate Innovation Star Project of Gansu Province (2021CXZX-268), 2021. <span class="note">(Principal Investigator)</span></li>
-                </ul>
-            </div>
-
-            <!-- 荣誉奖项 -->
-            <div class="section">
-                <h2>Awards & Honors</h2>
-                <ul>
-                    <li>First-Class Academic Scholarship, Northwest Normal University, 2021</li>
-                    <li>Third Prize, "Challenge Cup" Gansu Provincial College Students' Academic Competition, 2021</li>
-                    <li>Outstanding Member, CCF Northwest Normal University Student Chapter, 2021</li>
-                </ul>
-            </div>
+          
+            
         </div>
     </div>
 </body>
