@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <link rel="stylesheet" 
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yixuan Guo - Taiyuan University of Technology</title>
     <style>
@@ -58,22 +60,55 @@
             margin-bottom: 8px;
             line-height: 1.5;
         }
-        .sidebar .contact {
-            font-size: 13px;
-            color: #718096;
-            word-break: break-all;
-            margin-top: 15px;
-        }
-        .sidebar .contact p {
-            margin-bottom: 6px;
-        }
-        .sidebar .contact a {
-            color: #2b6cb0;
-            text-decoration: none;
-        }
-        .sidebar .contact a:hover {
-            text-decoration: underline;
-        }
+        /* 学校/机构信息 */
+.sidebar .affiliation {
+    display: flex;
+    align-items: flex-start;
+    color: #4a5568;
+    font-size: 15px;
+    line-height: 1.5;
+    margin-top: 12px;
+}
+
+.sidebar .affiliation i {
+    width: 20px;
+    margin-right: 8px;
+    margin-top: 4px;
+    color: #2b6cb0;
+    font-size: 15px;
+}
+
+
+/* 联系方式 */
+.sidebar .contact {
+    font-size: 13px;
+    color: #718096;
+    word-break: break-all;
+    margin-top: 18px;
+}
+
+.sidebar .contact p {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.sidebar .contact i {
+    width: 20px;
+    margin-right: 8px;
+    color: #2b6cb0;
+    font-size: 14px;
+}
+
+.sidebar .contact a {
+    color: #718096;
+    text-decoration: none;
+}
+
+.sidebar .contact a:hover {
+    color: #2b6cb0;
+    text-decoration: underline;
+}
 
         /* 谷歌学术按钮 */
         .scholar-btn {
@@ -247,19 +282,52 @@
             <img src="profile.jpg" alt="Yixuan Guo" class="profile-img">
             
             <h1>Yixuan Guo</h1>
-            <div class="title">Associate Professor</div>
-            <div class="title">College of Electronic Information Engineering<br>Taiyuan University of Technology</div>
-            
-            <div class="contact">
-                <p><strong>Email:</strong> guoyixuan@tyut.edu.cn</p>
-                <p><strong>Address:</strong> Taiyuan, China</p>
-            </div>
+
+
+<div class="title">
+    Associate Professor
+</div>
+
+
+<div class="affiliation">
+
+    <i class="fa-solid fa-building-columns"></i>
+
+    <span>
+        College of Electronic Information Engineering<br>
+        Taiyuan University of Technology
+    </span>
+
+</div>
+
+
+<div class="contact">
+
+    <p>
+        <i class="fa-solid fa-envelope"></i>
+
+        <a href="mailto:guoyixuan@tyut.edu.cn">
+            guoyixuan@tyut.edu.cn
+        </a>
+
+    </p>
+
+
+    <p>
+        <i class="fa-solid fa-location-dot"></i>
+
+        Taiyuan, Shanxi, China
+
+    </p>
+
+</div>
 
             <a href="https://scholar.google.com/citations?user=--vr5VcAAAAJ&hl=zh-CN" 
                target="_blank" 
                rel="noopener noreferrer"
                class="scholar-btn">
-                Google Scholar Profile
+<i class="fa-solid fa-graduation-cap"></i>
+&nbsp; Google Scholar Profile
             </a>
 
             <!-- 侧边导航菜单：滚动固定，点击跳转 -->
